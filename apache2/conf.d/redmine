@@ -1,0 +1,4 @@
+   <Directory /var/www/redmine>
+        RailsBaseURI /redmine
+        PassengerResolveSymlinksInDocumentRoot on
+    </Directory>
