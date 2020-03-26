@@ -1,0 +1,37 @@
+<?php
+
+
+
+    $from = "";
+   # $to = "";
+    $to = "";
+
+    require_once('class.smtp.php');
+    require_once('class.phpmailer.php');
+
+    $mail = new PHPMailer();
+    $mail->IsHTML(true);
+    $mail->IsSMTP();
+    $mail->CharSet = "utf-8";
+    #$mail->Host = "";
+    #$mail->Host = "";
+    $mail->Host = "";
+    $mail->Host = "";
+    $mail->SMTPDebug = 0;
+    $mail->SMTPAutoTLS = false;
+    $mail->SMTPAuth = false;
+    $mail->Port = "25";
+#    $mail->Username = "";
+#    $mail->Password = "";
+    $mail->SetFrom($from, $from );
+    $mail->Subject = "teste de mensagem";
+    $mail->MsgHTML("conteúdo do teste");
+    $mail->AddAddress($to, $to);
+if(!$mail->send()) {
+  echo 'Message was not sent.';
+  echo 'Mailer error: ' . $mail->ErrorInfo;
+} else {
+  echo 'Message has been sent.';
+}
+    $mail->ClearAllRecipients();
+?>
